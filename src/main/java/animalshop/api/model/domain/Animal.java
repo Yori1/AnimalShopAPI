@@ -1,12 +1,15 @@
 package animalshop.api.model.domain;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class Animal {
     @Id
-    private int Id;
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int Id = 0;
     private String name;
     private Kind kind;
 
@@ -20,6 +23,8 @@ public class Animal {
         this.name = name;
         this.kind = kind;
     }
+
+    public Animal(){}
 
     public int getId() {
         return Id;

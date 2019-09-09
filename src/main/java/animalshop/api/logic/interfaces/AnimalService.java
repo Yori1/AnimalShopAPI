@@ -7,4 +7,5 @@ import org.springframework.stereotype.Service;
 @Service
 public interface AnimalService {
      PostAnimalResponse PutAnimal(Animal animal);
+     Animal GetAnimal(int id);
 }

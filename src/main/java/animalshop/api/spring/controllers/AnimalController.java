@@ -1,6 +1,7 @@
 package animalshop.api.spring.controllers;
 
 import animalshop.api.data.AnimalRepository;
+import animalshop.api.logic.interfaces.AnimalService;
 import animalshop.api.model.communication.response.PostAnimalResponse;
 import animalshop.api.model.domain.Animal;
 import org.springframework.http.HttpStatus;
@@ -11,29 +12,34 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.client.HttpServerErrorException;
 
 public class AnimalController {
-   /* private AnimalRepository animalRepository;
+   private AnimalService animalService;
 
-    @RequestMapping(
-            value = "animals",
-            method = { RequestMethod.PUT }
-    )
-    public PostAnimalResponse PostAnimal(Animal animal)
-    {
-        Animal savedAnimal = animalRepository.save(animal);
-        if(savedAnimal == null) {
-            throw new HttpServerErrorException(HttpStatus.CONFLICT);
-        }
-        return new PostAnimalResponse(savedAnimal.getId());
+    public AnimalController(AnimalService animalService) {
+        this.animalService = animalService;
     }
 
     @RequestMapping(
-            value = "animals"
+            value = "animals",
+            method = { RequestMethod.POST, RequestMethod.PUT }
+    )
+    public PostAnimalResponse PostAnimal(Animal animal)
+    {
+         PostAnimalResponse postAnimalResponse = animalService.PutAnimal(animal);
+        if(postAnimalResponse.isConflict()) {
+            throw new HttpServerErrorException(HttpStatus.CONFLICT);
+        }
+        return postAnimalResponse;
+    }
+
+    @RequestMapping(
+            value = "animals",
+            method = { RequestMethod.GET }
     )
     public Animal GetAnimal(@RequestParam("id") int id)
     {
-        Animal animal = animalRepository.findById(id).orElse(null);
+        Animal animal = animalService.GetAnimal(id);
         return animal;
-    }*/
+    }
 
 
 }
