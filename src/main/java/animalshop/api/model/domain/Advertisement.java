@@ -5,7 +5,8 @@ import javax.persistence.*;
 @Entity
 public class Advertisement {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY
+    )
     private int Id = 0;
     private String description;
     private int priceEuroCents;
