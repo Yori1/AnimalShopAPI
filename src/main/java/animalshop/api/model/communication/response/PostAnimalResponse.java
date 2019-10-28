@@ -1,15 +1,15 @@
 package animalshop.api.model.communication.response;
 
 public class PostAnimalResponse {
-    private int Location;
+    private String Location;
     private boolean Conflict = false;
 
-    public PostAnimalResponse(int location, boolean conflict) {
+    public PostAnimalResponse(String location, boolean conflict) {
         Location = location;
         Conflict = conflict;
     }
 
-    public int getLocation() {
+    public String getLocation() {
         return Location;
     }
 

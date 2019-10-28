@@ -1,13 +1,23 @@
 package animalshop.api.model.communication.response;
 
 public class PostAdvertisementResult {
-    private int idAddedWith;
+    private String LocationAdvertisement;
+    private String LocationAnimal;
 
-    public PostAdvertisementResult(int idAddedWith) {
-        this.idAddedWith = idAddedWith;
+    public PostAdvertisementResult(String locationAdvertisement, String locationAnimal) {
+        LocationAdvertisement = locationAdvertisement;
+        LocationAnimal = locationAnimal;
     }
 
-    public int getIdAddedWith() {
-        return idAddedWith;
+    public String getLocationAdvertisement() {
+        return LocationAdvertisement;
     }
+
+    public String getLocationAnimal() {
+        return LocationAnimal;
+        }
+    
+
+
+    
 }
