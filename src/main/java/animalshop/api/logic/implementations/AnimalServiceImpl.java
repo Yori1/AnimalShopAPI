@@ -14,6 +14,10 @@ public class AnimalServiceImpl implements AnimalService {
     private Environment environment;
 
     
+    public AnimalServiceImpl(AnimalRepository animalRepository, Environment environment) {
+        this.animalRepository = animalRepository;
+        this.environment = environment;
+    }
 
     @Override
     public PostAnimalResponse PutAnimal(Animal animal)
@@ -36,10 +40,7 @@ public class AnimalServiceImpl implements AnimalService {
         return animalRepository.findById(id).orElse(null);
     }
 
-    public AnimalServiceImpl(AnimalRepository animalRepository, Environment environment) {
-        this.animalRepository = animalRepository;
-        this.environment = environment;
-    }
+
 
 
 }
