@@ -5,6 +5,7 @@ import animalshop.api.data.AnimalRepository;
 import animalshop.api.logic.interfaces.AdvertisementService;
 import animalshop.api.model.communication.response.PostAdvertisementResult;
 import animalshop.api.model.domain.Advertisement;
+import animalshop.api.model.domain.Animal;
 
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
@@ -25,11 +26,11 @@ public class AdvertisementServiceImpl implements AdvertisementService {
 
     
     public PostAdvertisementResult AddAdvertisement(Advertisement advertisement) {
-        animalRepository.save(advertisement.getAnimalBeingSold());
+        Animal animal = animalRepository.save(advertisement.getAnimalBeingSold());
         Advertisement advertisementSaved =  advertismentRepository.save(advertisement);
         PostAdvertisementResult postAdvertisementResult = null;
         if(advertisementSaved != null) {
-            String animalLocation = environment.getProperty("baseUrl") + "/animals/" + advertisementSaved.getAnimalBeingSold().getId();
+            String animalLocation = environment.getProperty("baseUrl") + "/animals/" + animal.getId();
             String advertisementLocation = environment.getProperty("baseUrl") + "/advertisements/" + advertisementSaved.getId();
             postAdvertisementResult = new PostAdvertisementResult(animalLocation, advertisementLocation);
         }
