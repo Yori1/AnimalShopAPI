@@ -25,13 +25,11 @@ public class AnimalServiceImpl implements AnimalService {
     public PostAnimalResponse PutAnimal(Animal animal)
     {
         Animal savedAnimal = animalRepository.save(animal);
-        int animalId = 0;
         boolean existed = false;
-        if(savedAnimal != null) {
-            animalId = savedAnimal.getId();
+        if(savedAnimal == null) {
             existed = true;
         }
-        String animalLocation = environment.getProperty("baseUrl") + "/animals/" + animalId;
+        String animalLocation = environment.getProperty("baseUrl") + "/animals/" + savedAnimal.getId();
 
         return new PostAnimalResponse(animalLocation, existed);
     }
