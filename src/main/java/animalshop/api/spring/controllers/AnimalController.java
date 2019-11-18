@@ -28,7 +28,7 @@ public class AnimalController {
             throw new HttpServerErrorException(HttpStatus.CONFLICT);
         }
         return postAnimalResponse;
-    }
+    }/*d*/
 
     @RequestMapping(
             value = "animals",
