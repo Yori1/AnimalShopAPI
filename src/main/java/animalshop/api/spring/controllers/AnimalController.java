@@ -30,11 +30,6 @@ public class AnimalController {
         return postAnimalResponse;
     }/*d*/
 
-    @RequestMapping(
-            value = "animals",
-            method = { RequestMethod.GET }
-    )
-
     @GetMapping("/animals/{id}")
     public Animal GetAnimal(@PathVariable int id)
     {
