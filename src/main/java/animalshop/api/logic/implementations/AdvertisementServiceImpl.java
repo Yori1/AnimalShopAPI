@@ -32,7 +32,7 @@ public class AdvertisementServiceImpl implements AdvertisementService {
         if(advertisementSaved != null) {
             String animalLocation = environment.getProperty("baseUrl") + "/animals/" + animal.getId();
             String advertisementLocation = environment.getProperty("baseUrl") + "/advertisements/" + advertisementSaved.getId();
-            postAdvertisementResult = new PostAdvertisementResult(animalLocation, advertisementLocation);
+            postAdvertisementResult = new PostAdvertisementResult(advertisementLocation, animalLocation);
         }
         return postAdvertisementResult;
     }
