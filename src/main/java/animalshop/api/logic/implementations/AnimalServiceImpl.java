@@ -8,6 +8,8 @@ import animalshop.api.model.domain.Animal;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class AnimalServiceImpl implements AnimalService {
     private AnimalRepository animalRepository;
@@ -39,8 +41,6 @@ public class AnimalServiceImpl implements AnimalService {
     {
         return animalRepository.findById(id).orElse(null);
     }
-
-
 
 
 }
